@@ -10,8 +10,6 @@ namespace MiBiblioteca_LC
     {
         int[,] espacios = new int[7, 7];
 
-        int total = 0;
-
         Random r = new Random();
         public void CreacionL()
         {
@@ -77,7 +75,49 @@ namespace MiBiblioteca_LC
             }
         }
 
+        public void MinimoMaximo()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("\n\n:::::ARTICULOS::::::::MINIMO:::::::::MAXIMO:::::");
+            Console.ResetColor();
+            for (int i = 0; i < espacios.GetLength(0); i++)
+            {
+                int min = espacios[i,0];
+                int max = espacios[i, 0];
+                int suma= 0;
 
+                for (int j = 0; j < espacios.GetLength(1); j++)
+                {
+                    if (espacios[i, j] < min)
+                    {
+                        min = espacios[i, j];
+                    }
+                    if (espacios[i, j] > max)
+                    {
+                        max = espacios[i, j];
+                    }
+                }
+                Console.WriteLine(":    ARTICULO " + (i+1) + "\t  :     " +min + "\t:     " + max +"      :");
+                Console.WriteLine("................................................");
+            }
+        }
+        public void Promedio()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("\n\n:::::ARTICULOS::::::::::PROMEDIO::::::");
+            Console.ResetColor();
+            for (int i = 0; i < espacios.GetLength(0); i++)
+            {
+                int suma = 0;
+                for (int j = 0; j < espacios.GetLength(1); j++)
+                {
+                    suma += espacios[i, j];
+                }
+                float promedio = (float)suma / 7;
+                Console.WriteLine("    ARTICULO " + (i + 1) + "\t   :     " + promedio );
+                Console.WriteLine("......................................");
+            }
+        }
     }
 
 }

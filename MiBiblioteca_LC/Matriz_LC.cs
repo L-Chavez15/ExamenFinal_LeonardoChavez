@@ -10,7 +10,7 @@ namespace MiBiblioteca_LC
     public class Matriz_LC
     {
         int[,] espacios = new int[7, 7];
-        int[] Vdiarias = new int [7];
+        int[] VentasDiarias = new int [7];
 
         Random r = new Random();
         public void CreacionL()
@@ -93,8 +93,9 @@ namespace MiBiblioteca_LC
         public void MostrarMatriz()
         {
             int ST = SumaTotal();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" ARTICULOS\t\t LUNES\t\tMARTES\t\tMIERCOLES\tJUEVES\t\tVIERNES\t\tSABADO\t\tDOMINGO\t\tTOTAL POR ARTICULO\n");
+            Console.BackgroundColor= ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine(" ARTICULOS               LUNES           MARTES        MIERCOLES         JUEVES         VIERNES         SABADO         DOMINGO          TOTAL POR ARTICULO  ");
             Console.ResetColor();
             for (int i = 0; i < espacios.GetLength(0); i++)
             {
@@ -120,22 +121,22 @@ namespace MiBiblioteca_LC
 
             for (int i = 0; i < espacios.GetLength(1); i++)
             {
-                int sumaC = 0;
+                int sumaColumna = 0;
                 for (int j = 0; j < espacios.GetLength(0); j++)
                 {
-                    sumaC = sumaC + espacios[j , i];
-                    Vdiarias[i] = sumaC;
+                    sumaColumna = sumaColumna + espacios[j , i];
+                    VentasDiarias[i] = sumaColumna;
                 }
             }
             for (int i = 0; i < espacios.GetLength(1); i++)
             {
-                Console.ForegroundColor=ConsoleColor.Yellow;
-                Console.Write("\t  "+Vdiarias[i]+"\t");
-                Console.ResetColor();
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor=ConsoleColor.Black;
+                Console.Write("          "+ VentasDiarias[i]+"   ");
             }
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor=ConsoleColor.Black;
-            Console.Write("\t       " + ST+ "        ");
+            Console.ForegroundColor=ConsoleColor.Red;
+            Console.Write("               " + ST+ "         ");
+            Console.WriteLine();
             Console.ResetColor();
         }
 

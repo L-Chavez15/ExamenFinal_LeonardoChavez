@@ -29,6 +29,8 @@ namespace Ejecucion_LC
             m1.CreacionV();
             m1.CreacionS();
             m1.CreacionD();
+            m1.MinimoMaximo();
+            m1.Promedio();
             Console.ReadKey();
 
         }
