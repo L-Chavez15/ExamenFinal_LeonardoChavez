@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace MiBiblioteca_LC
     public class Matriz_LC
     {
         int[,] espacios = new int[7, 7];
+        int[] Vdiarias = new int [7];
 
         Random r = new Random();
         public void CreacionL()
@@ -74,20 +76,34 @@ namespace MiBiblioteca_LC
                 espacios[i, col] = precios;
             }
         }
+        public int SumaTotal()
+        {
+            int Stotal = 0;
+            for (int i = 0; i < espacios.GetLength(0); i++)
+            {
+                for (int j = 0; j < espacios.GetLength(1); j++)
+                {
+                    Stotal += espacios[i, j];
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ResetColor();
+            return Stotal;
+        }
         public void MostrarMatriz()
         {
+            int ST = SumaTotal();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(" ARTICULOS\t\t LUNES\t\tMARTES\t\tMIERCOLES\tJUEVES\t\tVIERNES\t\tSABADO\t\tDOMINGO\t\tTOTAL POR ARTICULO\n");
             Console.ResetColor();
-
-            int total = 0;
-
             for (int i = 0; i < espacios.GetLength(0); i++)
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write(" ARTICULO" + (i + 1) + "\t");
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Write(" ARTICULO " + (i + 1) + " \t");
                 Console.ResetColor();
 
+                int total = 0;
                 for (int j = 0; j < espacios.GetLength(1); j++)
                 {
                     total = total+ espacios[i, j];
@@ -97,11 +113,31 @@ namespace MiBiblioteca_LC
                 Console.WriteLine("\t       "+total+"\n");
                 Console.ResetColor();
             }
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.Write(" Ventas Diarias");
+            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write(" Ventas Diarias " );
             Console.ResetColor();
-            Console.ReadKey();
+
+            for (int i = 0; i < espacios.GetLength(1); i++)
+            {
+                int sumaC = 0;
+                for (int j = 0; j < espacios.GetLength(0); j++)
+                {
+                    sumaC = sumaC + espacios[j , i];
+                    Vdiarias[i] = sumaC;
+                }
+            }
+            for (int i = 0; i < espacios.GetLength(1); i++)
+            {
+                Console.ForegroundColor=ConsoleColor.Yellow;
+                Console.Write("\t  "+Vdiarias[i]+"\t");
+                Console.ResetColor();
+            }
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor=ConsoleColor.Black;
+            Console.Write("\t       " + ST+ "        ");
+            Console.ResetColor();
         }
-       
+
     }
 }
