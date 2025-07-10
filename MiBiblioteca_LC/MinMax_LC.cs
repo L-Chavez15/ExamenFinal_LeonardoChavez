@@ -78,7 +78,7 @@ namespace MiBiblioteca_LC
         public void MinimoMaximo()
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("\n\n:::::ARTICULOS::::::::MINIMO:::::::::MAXIMO:::::");
+            Console.WriteLine("\n\n\t:::::ARTICULOS::::::::MINIMO:::::::::MAXIMO:::::");
             Console.ResetColor();
             for (int i = 0; i < espacios.GetLength(0); i++)
             {
@@ -97,14 +97,14 @@ namespace MiBiblioteca_LC
                         max = espacios[i, j];
                     }
                 }
-                Console.WriteLine(":    ARTICULO " + (i+1) + "\t  :     " +min + "\t:     " + max +"      :");
-                Console.WriteLine("................................................");
+                Console.WriteLine("\t:    ARTICULO " + (i+1) + "\t  :     " +min + "\t:     " + max +"      :");
+                Console.WriteLine("\t................................................");
             }
         }
         public void Promedio()
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("\n\n:::::ARTICULOS::::::::::PROMEDIO::::::");
+            Console.WriteLine("\n\n\t:::::ARTICULOS::::::::::PROMEDIO::::::");
             Console.ResetColor();
             for (int i = 0; i < espacios.GetLength(0); i++)
             {
@@ -114,8 +114,8 @@ namespace MiBiblioteca_LC
                     suma += espacios[i, j];
                 }
                 float promedio = (float)suma / 7;
-                Console.WriteLine("    ARTICULO " + (i + 1) + "\t   :     " + promedio );
-                Console.WriteLine("......................................");
+                Console.WriteLine("\t:    ARTICULO " + (i + 1) + "\t   :     " + promedio );
+                Console.WriteLine("\t......................................");
             }
         }
     }
