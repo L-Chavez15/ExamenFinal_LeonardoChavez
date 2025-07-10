@@ -20,7 +20,6 @@ namespace Ejecucion_LC
             matriz.CreacionS();
             matriz.CreacionD();
             matriz.MostrarMatriz();
-            //matriz.SUMATOTAL();
             MinMax_LC m1 = new MinMax_LC();
             m1.CreacionL();
             m1.CreacionM();
